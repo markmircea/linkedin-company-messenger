@@ -10,12 +10,15 @@ class LinkedInAutomator {
   }
 
   generateMessage(companyName) {
-    return `Hi ${companyName}!
-
-I am reaching out to express my interest in joining your software development team. With extensive experience in PHP/Laravel, REST APIs & GraphQL creation and consumption, AI integration, and front-end technologies (Vue.js, React), I have created secure, scalable web applications for many enterprise clients. 
-
- I am also highly skilled in Caching and Queuing Strategies with Redis and RabbitMQ, Version Control with Git, and Hands-on experience with modern front-end technologies and frameworks to build responsive and dynamic user interfaces such as Vue, Vite, React, Inertia, Node.js, Tailwind CSS, HTML5.`;
-  }
+    return `Hi ${companyName}! 
+I wanted to show you how we're helping restaurants achieve 80%+ cost savings through custom AI automation. At https://AIBrainl.ink we transform manual processes into automated workflows in under 2 weeks, offering:
+✅ Dedicated project managers who understand your challenges
+✅ Solutions tailored to your existing systems
+✅ Seamless integration with your current tech
+Featured use case (restaurant ex.): Our AI voice solution answers all calls to your restaurant, providing menu info and handling table reservations and special requests, with 70% less human intervention needed.
+Would you be open to a 15-minute call? I'd be happy to share specific results.
+Looking forward to connecting!
+Mark`;}
 
   async init() {
     console.log("🔄 Starting automation process...");
@@ -274,20 +277,20 @@ I am reaching out to express my interest in joining your software development te
       console.log("⏳ Waiting for modal to appear...");
       await this.sleep(this.delay);
 
-      // Select Careers option
-      console.log("🔍 Looking for topic dropdown...");
-      await this.sleep(this.delay);
-      const topicSelect = tab.document.querySelector(
-        "#org-message-page-modal-conversation-topic"
-      );
-      if (topicSelect) {
-        console.log("✅ Topic dropdown found");
-        console.log('📝 Selecting "Careers" option');
-        topicSelect.value = "urn:li:fsd_pageMailboxConversationTopic:6";
-        topicSelect.dispatchEvent(new Event("change", { bubbles: true }));
-      } else {
-        console.log("❌ Topic dropdown not found");
-      }
+      // Select Other option
+      console.log("🔍 Looking for topic dropdown...");
+      await this.sleep(this.delay);
+      const topicSelect = tab.document.querySelector(
+        "#msg-shared-modals-msg-page-modal-presenter-conversation-topic"
+      );
+      if (topicSelect) {
+        console.log("✅ Topic dropdown found");
+        console.log('📝 Selecting "Other" option');
+        topicSelect.value = "urn:li:fsd_pageMailboxConversationTopic:7";
+        topicSelect.dispatchEvent(new Event("change", { bubbles: true }));
+      } else {
+        console.log("❌ Topic dropdown not found");
+      }
 
       console.log("⏳ Waiting before typing message...");
 
@@ -371,5 +374,3 @@ console.log("🤖 LinkedIn Automator Script Loaded");
 console.log("▶️ Starting automation...");
 const automator = new LinkedInAutomator();
 automator.init();
-
-
