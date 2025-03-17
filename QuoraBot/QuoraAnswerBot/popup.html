@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quora Answer Bot</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .input-group {
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+    #status {
+      margin-top: 10px;
+      padding: 5px;
+      color: #4285f4;
+    }
+  </style>
+</head>
+<body>
+  <h2>Quora Answer Bot</h2>
+  
+  <div class="input-group">
+    <label for="apiKey">OpenRouter API Key:</label>
+    <input type="password" id="apiKey">
+  </div>
+  
+  <div class="input-group">
+    <label for="instructions">AI Instructions:</label>
+    <textarea id="instructions" rows="4">You are an expert answering questions on Quora. Provide helpful, informative answers that are engaging and well-structured. Use a friendly, conversational tone. Include relevant facts and examples where appropriate. Keep answers concise but comprehensive, around 3-5 paragraphs.</textarea>
+  </div>
+  
+  <div class="input-group">
+    <label for="model">AI Model:</label>
+    <input type="text" id="model" value="anthropic/claude-3-opus:beta">
+  </div>
+  
+  <button id="startBot">Start Bot</button>
+  <button id="stopBot">Stop Bot</button>
+  <button id="highlightQuestions">Highlight Questions</button>
+  
+  <div id="status"></div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
